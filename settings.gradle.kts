@@ -25,3 +25,4 @@ include(":app")
 // feature
 include(":feature:home")
 include(":feature:garden")
+include(":feature:gallery")
