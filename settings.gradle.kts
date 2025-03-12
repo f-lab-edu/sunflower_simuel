@@ -21,4 +21,6 @@ dependencyResolutionManagement {
 
 rootProject.name = "Sunflower"
 include(":app")
- 
+
+// feature
+include(":feature:home")
