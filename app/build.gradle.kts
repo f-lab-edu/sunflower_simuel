@@ -48,6 +48,12 @@ dependencies {
     implementation(project(":feature:home"))
     implementation(project(":feature:plantdetail"))
     implementation(project(":feature:plantlist"))
+
+
+    // navigation
+    implementation(libs.androidx.navigation.compose)
+    implementation(libs.androidx.hilt.navigation.compose)
+
     // AndroidX
     implementation(libs.androidx.core.ktx)
     implementation(libs.androidx.lifecycle.runtime.ktx)
