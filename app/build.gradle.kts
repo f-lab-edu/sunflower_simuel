@@ -4,6 +4,7 @@ plugins {
     alias(libs.plugins.kotlin.compose)
     alias(libs.plugins.ksp)
     alias(libs.plugins.hilt.android)
+    alias(libs.plugins.kotlin.serialization)
 }
 
 android {
@@ -42,6 +43,11 @@ android {
 }
 
 dependencies {
+    implementation(project(":feature:gallery"))
+    implementation(project(":feature:garden"))
+    implementation(project(":feature:home"))
+    implementation(project(":feature:plantdetail"))
+    implementation(project(":feature:plantlist"))
     // AndroidX
     implementation(libs.androidx.core.ktx)
     implementation(libs.androidx.lifecycle.runtime.ktx)
