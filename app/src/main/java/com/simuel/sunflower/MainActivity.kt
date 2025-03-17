@@ -37,16 +37,16 @@ class MainActivity : ComponentActivity() {
 
 @Composable
 fun SunflowerApp(
-    modifier: Modifier = Modifier,
-    navController: NavHostController = rememberNavController()
+    modifier: Modifier,
 ) {
+    val navController: NavHostController = rememberNavController()
     NavHost(
         navController = navController,
-        startDestination = "home"
+        startDestination = "home",
+        modifier = modifier
     ) {
         composable("home") {
             HomeScreen(
-                modifier = modifier,
                 onPlantDetailClick = { plantId ->
                     navController.navigate("plantDetail/$plantId")
                 }
