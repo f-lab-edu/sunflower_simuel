@@ -43,12 +43,8 @@ android {
 }
 
 dependencies {
-    implementation(project(":feature:gallery"))
-    implementation(project(":feature:garden"))
     implementation(project(":feature:home"))
     implementation(project(":feature:plantdetail"))
-    implementation(project(":feature:plantlist"))
-
 
     // navigation
     implementation(libs.androidx.navigation.compose)
