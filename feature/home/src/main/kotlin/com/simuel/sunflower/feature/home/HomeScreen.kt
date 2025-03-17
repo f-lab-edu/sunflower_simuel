@@ -25,7 +25,7 @@ import androidx.compose.ui.unit.dp
 @Composable
 fun HomeScreen(
     modifier: Modifier,
-    onPlantDetailClick: (String) -> Unit = {}
+    onPlantDetailClick: (String) -> Unit
 ) {
     var selectedTabIndex by remember { mutableIntStateOf(0) }
     val tabs = listOf("Garden", "Plant List")
@@ -108,5 +108,5 @@ fun MainTopBar() {
 @Preview
 @Composable
 private fun PreviewHomeScreen() {
-    HomeScreen(modifier = Modifier)
+    HomeScreen(onPlantDetailClick = {})
 }
