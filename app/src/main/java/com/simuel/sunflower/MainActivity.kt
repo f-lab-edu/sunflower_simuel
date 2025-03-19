@@ -54,6 +54,7 @@ fun SunflowerApp(
         }
         composable("plantDetail/{plantId}") { backStackEntry ->
             PlantDetailScreen(
+                plantId = backStackEntry.arguments?.getString("plantId") ?: "",
                 onBackClick = { navController.popBackStack() }
             )
         }
