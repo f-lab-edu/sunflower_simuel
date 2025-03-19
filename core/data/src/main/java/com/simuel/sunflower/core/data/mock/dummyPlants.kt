@@ -308,6 +308,7 @@ internal val dummyGardenPlant = listOf(
         plantName = "Bougainvillea",
         wateringInterval = 21,
         lastWateringDate = "Mar 16, 2025",
-        plantedDate = "Mar 16, 2025"
+        plantedDate = "Mar 16, 2025",
+        imageUrl = "https://upload.wikimedia.org/wikipedia/commons/6/6d/Paperflower_--_Bougainvillea_glabra.jpg"
     )
 )

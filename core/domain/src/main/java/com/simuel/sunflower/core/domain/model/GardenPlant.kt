@@ -5,5 +5,6 @@ data class GardenPlant (
     val plantName: String,
     val plantedDate: String,
     val lastWateringDate: String,
-    val wateringInterval: Int
+    val wateringInterval: Int,
+    val imageUrl: String
 )
