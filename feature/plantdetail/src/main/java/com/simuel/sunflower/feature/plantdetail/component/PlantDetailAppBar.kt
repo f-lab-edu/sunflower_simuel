@@ -31,8 +31,8 @@ import androidx.compose.ui.zIndex
 fun PlantDetailAppBar(
     title: String,
     imageUrl: String,
-    onBackClick: () -> Unit,
     scrollBehavior: TopAppBarScrollBehavior,
+    onBackClick: () -> Unit,
 ) {
     Surface(
         color = MaterialTheme.colorScheme.background
