@@ -26,8 +26,8 @@ import com.simuel.sunflower.feature.plantdetail.model.PlantDetailUiState
 fun PlantDetailScreen(
     plantId: String,
     onBackClick: () -> Unit,
-    viewModel: PlantDetailViewModel = hiltViewModel()
 ) {
+    val viewModel: PlantDetailViewModel = hiltViewModel()
     val uiState by viewModel.uiState.collectAsStateWithLifecycle()
 
     LaunchedEffect(plantId) {
