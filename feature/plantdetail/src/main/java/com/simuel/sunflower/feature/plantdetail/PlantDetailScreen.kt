@@ -59,13 +59,12 @@ fun PlantDetailScreen(
 private fun PlantDetailContent(
     plant: Plant,
     onBackClick: () -> Unit,
-    modifier: Modifier = Modifier
 ) {
     val scrollBehavior = TopAppBarDefaults.enterAlwaysScrollBehavior()
     val scrollState = rememberScrollState()
 
     Box(
-        modifier = modifier.fillMaxSize()
+        modifier = Modifier.fillMaxSize()
     ) {
         PlantDetailAppBar(
             title = plant.name,
