@@ -1,5 +1,6 @@
 package com.simuel.sunflower.core.data.mock
 
+import com.simuel.sunflower.core.data.model.GardenPlantDto
 import com.simuel.sunflower.core.domain.model.GardenPlant
 import com.simuel.sunflower.core.domain.model.Plant
 
@@ -303,7 +304,7 @@ internal val dummyPlants: List<Plant> = listOf(
 )
 
 internal val dummyGardenPlant = listOf(
-    GardenPlant(
+    GardenPlantDto(
         plantId = "bougainvillea-glabra",
         plantName = "Bougainvillea",
         wateringIntervalInDays = 21,

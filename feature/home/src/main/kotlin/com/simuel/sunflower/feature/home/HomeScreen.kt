@@ -19,6 +19,7 @@ import com.simuel.sunflower.core.domain.model.Plant
 import com.simuel.sunflower.feature.home.component.GardenComponent
 import com.simuel.sunflower.feature.home.component.MainTopBar
 import com.simuel.sunflower.feature.home.component.PlantListComponent
+import com.simuel.sunflower.feature.home.model.UiGardenPlant
 
 @Composable
 fun HomeScreen(
@@ -46,7 +47,7 @@ fun HomeScreen(
 @Composable
 private fun HomeScreen(
     selectedTabIndex: Int,
-    gardenPlants: List<GardenPlant>,
+    gardenPlants: List<UiGardenPlant>,
     plants: List<Plant>,
     onTabSelected: (Int) -> Unit,
     onPlantDetailClick: (String) -> Unit
@@ -91,26 +92,26 @@ private fun PreviewHomeScreenGreenTab() {
         selectedTabIndex = 0,
         onTabSelected = { },
         gardenPlants = listOf(
-            GardenPlant(
+            UiGardenPlant(
                 plantId = "bougainvillea-glabra",
                 plantName = "Bougainvillea",
-                wateringInterval = 21,
-                lastWateringDate = "Mar 16, 2025",
-                plantedDate = "Mar 16, 2025",
+                wateringIntervalInDays = 21,
+                lastWateringDateText = "Mar 16, 2025",
+                plantedDateText = "Mar 16, 2025",
                 imageUrl = "https://upload.wikimedia.org/wikipedia/commons/6/6d/Paperflower_--_Bougainvillea_glabra.jpg"
-            ), GardenPlant(
+            ), UiGardenPlant(
                 plantId = "bougainvillea-glabra",
                 plantName = "Bougainvillea",
-                wateringInterval = 21,
-                lastWateringDate = "Mar 16, 2025",
-                plantedDate = "Mar 16, 2025",
+                wateringIntervalInDays = 21,
+                lastWateringDateText = "Mar 16, 2025",
+                plantedDateText = "Mar 16, 2025",
                 imageUrl = "https://upload.wikimedia.org/wikipedia/commons/6/6d/Paperflower_--_Bougainvillea_glabra.jpg"
-            ), GardenPlant(
+            ), UiGardenPlant(
                 plantId = "bougainvillea-glabra",
                 plantName = "Bougainvillea",
-                wateringInterval = 21,
-                lastWateringDate = "Mar 16, 2025",
-                plantedDate = "Mar 16, 2025",
+                wateringIntervalInDays = 21,
+                lastWateringDateText = "Mar 16, 2025",
+                plantedDateText = "Mar 16, 2025",
                 imageUrl = "https://upload.wikimedia.org/wikipedia/commons/6/6d/Paperflower_--_Bougainvillea_glabra.jpg"
             )
         ),

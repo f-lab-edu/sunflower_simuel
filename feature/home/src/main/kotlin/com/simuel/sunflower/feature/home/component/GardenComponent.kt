@@ -8,12 +8,11 @@ import androidx.compose.foundation.lazy.grid.items
 import androidx.compose.runtime.Composable
 import androidx.compose.ui.tooling.preview.Preview
 import androidx.compose.ui.unit.dp
-import com.simuel.sunflower.core.domain.model.GardenPlant
+import com.simuel.sunflower.feature.home.model.UiGardenPlant
 
 @Composable
 fun GardenComponent(
-    plants: List<GardenPlant>,
-    onPlantDetailClick: (String) -> Unit
+    plants: List<UiGardenPlant>, onPlantDetailClick: (String) -> Unit
 ) {
     LazyVerticalGrid(
         columns = GridCells.Fixed(2),
@@ -22,9 +21,7 @@ fun GardenComponent(
     ) {
         items(plants) { plant ->
             GardenPlantCard(
-                plant = plant,
-                onPlantDetailClick = { onPlantDetailClick(plant.plantId) }
-            )
+                plant = plant, onPlantDetailClick = { onPlantDetailClick(plant.plantId) })
         }
     }
 }
@@ -34,26 +31,26 @@ fun GardenComponent(
 private fun PreviewGardenTab() {
     GardenComponent(
         plants = listOf(
-            GardenPlant(
+            UiGardenPlant(
                 plantId = "bougainvillea-glabra",
                 plantName = "Bougainvillea",
-                wateringInterval = 21,
-                lastWateringDate = "Mar 16, 2025",
-                plantedDate = "Mar 16, 2025",
+                wateringIntervalInDays = 21,
+                lastWateringDateText = "Mar 16, 2025",
+                plantedDateText = "Mar 16, 2025",
                 imageUrl = "https://upload.wikimedia.org/wikipedia/commons/6/6d/Paperflower_--_Bougainvillea_glabra.jpg"
-            ), GardenPlant(
+            ), UiGardenPlant(
                 plantId = "bougainvillea-glabra",
                 plantName = "Bougainvillea",
-                wateringInterval = 21,
-                lastWateringDate = "Mar 16, 2025",
-                plantedDate = "Mar 16, 2025",
+                wateringIntervalInDays = 21,
+                lastWateringDateText = "Mar 16, 2025",
+                plantedDateText = "Mar 16, 2025",
                 imageUrl = "https://upload.wikimedia.org/wikipedia/commons/6/6d/Paperflower_--_Bougainvillea_glabra.jpg"
-            ), GardenPlant(
+            ), UiGardenPlant(
                 plantId = "bougainvillea-glabra",
                 plantName = "Bougainvillea",
-                wateringInterval = 21,
-                lastWateringDate = "Mar 16, 2025",
-                plantedDate = "Mar 16, 2025",
+                wateringIntervalInDays = 21,
+                lastWateringDateText = "Mar 16, 2025",
+                plantedDateText = "Mar 16, 2025",
                 imageUrl = "https://upload.wikimedia.org/wikipedia/commons/6/6d/Paperflower_--_Bougainvillea_glabra.jpg"
             )
         ), onPlantDetailClick = {})

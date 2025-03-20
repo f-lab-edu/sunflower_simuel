@@ -20,10 +20,11 @@ import androidx.compose.ui.unit.dp
 import androidx.compose.ui.unit.sp
 import coil.compose.AsyncImage
 import com.simuel.sunflower.core.domain.model.GardenPlant
+import com.simuel.sunflower.feature.home.model.UiGardenPlant
 
 @Composable
 fun GardenPlantCard(
-    plant: GardenPlant,
+    plant: UiGardenPlant,
     onPlantDetailClick: (String) -> Unit
 ) {
     Card(
@@ -73,7 +74,7 @@ fun GardenPlantCard(
                 )
 
                 Text(
-                    text = plant.plantedDate,
+                    text = plant.plantedDateText,
                     fontSize = 14.sp,
                     textAlign = TextAlign.Center,
                     modifier = Modifier.fillMaxWidth()
@@ -89,14 +90,14 @@ fun GardenPlantCard(
                 )
 
                 Text(
-                    text = plant.lastWateringDate,
+                    text = plant.lastWateringDateText,
                     fontSize = 16.sp,
                     textAlign = TextAlign.Center,
                     modifier = Modifier.fillMaxWidth()
                 )
 
                 Text(
-                    text = "water in ${plant.wateringInterval} days.",
+                    text = "water in ${plant.wateringIntervalInDays} days.",
                     fontSize = 16.sp,
                     textAlign = TextAlign.Center,
                     modifier = Modifier.fillMaxWidth()
@@ -110,10 +111,10 @@ fun GardenPlantCard(
 @Composable
 private fun PreviewGardenPlantCard() {
     GardenPlantCard(
-        plant = GardenPlant(
-            plantedDate = "2022-01-01",
-            lastWateringDate = "2022-01-15",
-            wateringInterval = 7,
+        plant = UiGardenPlant(
+            wateringIntervalInDays = 21,
+            lastWateringDateText = "Mar 16, 2025",
+            plantedDateText = "Mar 16, 2025",
             plantId = "12345",
             plantName = "Sunflower",
             imageUrl = "https://www.google.com/url?sa=i&url=https%3A%2F%2Fi-nesslecture.com%2Fentry%2F%25E2%2580%2598%25ED%2583%259C%25EC%2596%2591%25EC%259D%2598-%25EA%25BD%2583%25E2%2580%2599-%25ED%2595%25B4%25EB%25B0%2594%25EB%259D%25BC%25EA%25B8%25B0Sunflower%25EC%259D%2598-%25EA%25BD%2583%25EB%25A7%2590-%25ED%2599%259C%25EC%259A%25A9-%25EC%259E%25AC%25EB%25B0%25B0-%25EB%25B0%25A9%25EB%25B2%2595&psig=AOvVaw3d8Xvv_Nb4oXhlOkFxPoId&ust=1742473338712000&source=images&cd=vfe&opi=89978449&ved=0CBQQjRxqFwoTCICP7ZWRlowDFQAAAAAdAAAAABAE"
