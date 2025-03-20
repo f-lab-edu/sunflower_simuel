@@ -4,4 +4,5 @@ import com.simuel.sunflower.core.domain.model.Plant
 
 interface PlantRepository {
     fun loadPlants(): List<Plant>
+    fun findPlantById(plantId: String): Plant
 }

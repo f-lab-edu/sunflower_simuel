@@ -9,4 +9,10 @@ internal class PlantRepositoryImpl @Inject constructor(): PlantRepository {
     override fun loadPlants(): List<Plant> {
         return dummyPlants
     }
+    override fun findPlantById(plantId: String): Plant {
+        val plant = checkNotNull(dummyPlants.find { it.plantId == plantId }) {
+            "Plant not found: $plantId"
+        }
+        return plant
+    }
 }
