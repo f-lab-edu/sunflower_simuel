@@ -1,6 +1,7 @@
 package com.simuel.sunflower.feature.plantdetail
 
 import androidx.compose.foundation.layout.Box
+
 import androidx.compose.foundation.layout.fillMaxSize
 import androidx.compose.foundation.layout.padding
 import androidx.compose.foundation.rememberScrollState
@@ -33,31 +34,16 @@ fun PlantDetailScreen(
     LaunchedEffect(plantId) {
         viewModel.loadPlantDetail(plantId)
     }
-
-
-    Box(modifier = Modifier.fillMaxSize()) {
-        when (uiState) {
-            is PlantDetailUiState.Loading -> {
-                CircularProgressIndicator(
-                    modifier = Modifier.align(Alignment.Center)
-                )
-            }
-
-            is PlantDetailUiState.Success -> {
-                val plant = (uiState as PlantDetailUiState.Success).plant
-                PlantDetailScreen(
-                    plant = plant, onBackClick = onBackClick
-                )
-            }
-        }
-
-    }
+    PlantDetailScreen(
+        state = uiState,
+        onBackClick = onBackClick,
+    )
 }
 
 @OptIn(ExperimentalMaterial3Api::class)
 @Composable
 private fun PlantDetailScreen(
-    plant: Plant,
+    state: PlantDetailUiState,
     onBackClick: () -> Unit,
 ) {
     val scrollBehavior = TopAppBarDefaults.enterAlwaysScrollBehavior()
@@ -66,20 +52,34 @@ private fun PlantDetailScreen(
     Box(
         modifier = Modifier.fillMaxSize()
     ) {
-        PlantDetailAppBar(
-            title = plant.name,
-            imageUrl = plant.imageUrl,
-            onBackClick = onBackClick,
-            scrollBehavior = scrollBehavior
-        )
+        when (state) {
+            is PlantDetailUiState.Loading -> {
+                Box(
+                    modifier = Modifier.fillMaxSize()
+                ) {
+                    CircularProgressIndicator(
+                        modifier = Modifier.align(Alignment.Center)
+                    )
+                }
+            }
 
-        PlantDetailContent(
-            plant = plant,
-            modifier = Modifier
-                .fillMaxSize()
-                .padding(top = 336.dp)
-                .verticalScroll(scrollState)
-        )
+            is PlantDetailUiState.Success -> {
+                PlantDetailAppBar(
+                    title = state.plant.name,
+                    imageUrl = state.plant.imageUrl,
+                    onBackClick = onBackClick,
+                    scrollBehavior = scrollBehavior
+                )
+
+                PlantDetailContent(
+                    plant = state.plant,
+                    modifier = Modifier
+                        .fillMaxSize()
+                        .padding(top = 336.dp)
+                        .verticalScroll(scrollState)
+                )
+            }
+        }
     }
 }
 
@@ -101,5 +101,5 @@ fun PreviewPlantDetailScreen() {
     )
 
     PlantDetailScreen(
-        plant = previewPlant, onBackClick = {})
+        state = PlantDetailUiState.Success(previewPlant), onBackClick = {})
 }
