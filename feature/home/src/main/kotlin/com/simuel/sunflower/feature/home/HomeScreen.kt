@@ -24,8 +24,8 @@ import com.simuel.sunflower.feature.home.model.UiGardenPlant
 @Composable
 fun HomeScreen(
     onPlantDetailClick: (String) -> Unit,
-    viewModel: HomeViewModel = hiltViewModel(),
 ) {
+    val viewModel: HomeViewModel = hiltViewModel()
     LaunchedEffect(Unit) {
         viewModel.loadPlants()
         viewModel.loadGardenPlants()
