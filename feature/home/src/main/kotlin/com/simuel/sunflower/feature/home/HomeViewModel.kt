@@ -32,13 +32,13 @@ class HomeViewModel @Inject constructor(
 
     fun loadPlants() {
         viewModelScope.launch {
-            _plants.value = plantRepository.getPlants()
+            _plants.value = plantRepository.loadPlants()
         }
     }
 
     fun loadGardenPlants() {
         viewModelScope.launch {
-            _gardenPlants.value = gardenRepository.getGardenPlants().map {
+            _gardenPlants.value = gardenRepository.loadGardenPlants().map {
                 it.toUiModel()
             }
         }

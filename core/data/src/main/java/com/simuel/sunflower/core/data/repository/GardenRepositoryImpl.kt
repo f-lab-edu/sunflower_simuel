@@ -7,7 +7,7 @@ import com.simuel.sunflower.core.domain.repository.GardenRepository
 import javax.inject.Inject
 
 internal class GardenRepositoryImpl @Inject constructor() : GardenRepository {
-    override fun getGardenPlants(): List<GardenPlant> {
+    override fun loadGardenPlants(): List<GardenPlant> {
         return dummyGardenPlant.map {
             it.toGardenPlant()
         }
