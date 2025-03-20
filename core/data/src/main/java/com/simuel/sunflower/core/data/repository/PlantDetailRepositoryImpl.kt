@@ -6,7 +6,7 @@ import com.simuel.sunflower.core.domain.repository.PlantDetailRepository
 import javax.inject.Inject
 
 internal class PlantDetailRepositoryImpl @Inject constructor(): PlantDetailRepository {
-    override fun getPlantDetail(plantId: String): Plant {
+    override fun findPlantById(plantId: String): Plant {
         val plant = checkNotNull(dummyPlants.find { it.plantId == plantId }) {
             "Plant not found: $plantId"
         }

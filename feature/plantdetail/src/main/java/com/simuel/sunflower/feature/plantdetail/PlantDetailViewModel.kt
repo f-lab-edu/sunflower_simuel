@@ -5,7 +5,6 @@ import androidx.lifecycle.viewModelScope
 import com.simuel.sunflower.core.domain.repository.PlantDetailRepository
 import com.simuel.sunflower.feature.plantdetail.model.PlantDetailUiState
 import dagger.hilt.android.lifecycle.HiltViewModel
-import kotlinx.coroutines.CoroutineExceptionHandler
 import kotlinx.coroutines.flow.MutableStateFlow
 import kotlinx.coroutines.flow.StateFlow
 import kotlinx.coroutines.flow.asStateFlow
@@ -23,7 +22,7 @@ class PlantDetailViewModel @Inject constructor(
         _uiState.value = PlantDetailUiState.Loading
 
         viewModelScope.launch {
-            val plant = repository.getPlantDetail(plantId)
+            val plant = repository.findPlantById(plantId)
             _uiState.value = PlantDetailUiState.Success(plant)
         }
     }
