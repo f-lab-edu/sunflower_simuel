@@ -45,7 +45,7 @@ fun PlantDetailScreen(
 
             is PlantDetailUiState.Success -> {
                 val plant = (uiState as PlantDetailUiState.Success).plant
-                PlantDetailContent(
+                PlantDetailScreen(
                     plant = plant, onBackClick = onBackClick
                 )
             }
@@ -56,7 +56,7 @@ fun PlantDetailScreen(
 
 @OptIn(ExperimentalMaterial3Api::class)
 @Composable
-private fun PlantDetailContent(
+private fun PlantDetailScreen(
     plant: Plant,
     onBackClick: () -> Unit,
 ) {
@@ -100,6 +100,6 @@ fun PreviewPlantDetailScreen() {
         imageUrl = "https://upload.wikimedia.org/wikipedia/commons/1/13/More_pears.jpg"
     )
 
-    PlantDetailContent(
+    PlantDetailScreen(
         plant = previewPlant, onBackClick = {})
 }
