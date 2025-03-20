@@ -17,7 +17,7 @@ import androidx.lifecycle.compose.collectAsStateWithLifecycle
 import com.simuel.sunflower.core.domain.model.Plant
 import com.simuel.sunflower.feature.home.component.GardenPlantGrid
 import com.simuel.sunflower.feature.home.component.MainTopBar
-import com.simuel.sunflower.feature.home.component.PlantListComponent
+import com.simuel.sunflower.feature.home.component.PlantListGrid
 import com.simuel.sunflower.feature.home.model.UiGardenPlant
 
 @Composable
@@ -75,7 +75,7 @@ private fun HomeScreen(
                     onPlantDetailClick = onPlantDetailClick
                 )
 
-                1 -> PlantListComponent(
+                1 -> PlantListGrid(
                     plants = plants,
                     onPlantDetailClick = onPlantDetailClick
                 )

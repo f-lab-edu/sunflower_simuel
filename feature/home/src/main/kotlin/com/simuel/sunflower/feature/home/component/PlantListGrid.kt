@@ -11,7 +11,7 @@ import androidx.compose.ui.unit.dp
 import com.simuel.sunflower.core.domain.model.Plant
 
 @Composable
-fun PlantListComponent(
+fun PlantListGrid(
     plants: List<Plant>,
     onPlantDetailClick: (String) -> Unit
 ) {
@@ -32,7 +32,7 @@ fun PlantListComponent(
 @Preview
 @Composable
 private fun PreviewPlantListComponent() {
-    PlantListComponent(
+    PlantListGrid(
         plants = listOf(
             Plant(
                 plantId = "aquilegia-coerulea",
