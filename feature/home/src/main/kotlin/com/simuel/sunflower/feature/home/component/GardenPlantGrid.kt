@@ -11,7 +11,7 @@ import androidx.compose.ui.unit.dp
 import com.simuel.sunflower.feature.home.model.UiGardenPlant
 
 @Composable
-fun GardenComponent(
+fun GardenPlantGrid(
     plants: List<UiGardenPlant>, onPlantDetailClick: (String) -> Unit
 ) {
     LazyVerticalGrid(
@@ -29,7 +29,7 @@ fun GardenComponent(
 @Preview
 @Composable
 private fun PreviewGardenTab() {
-    GardenComponent(
+    GardenPlantGrid(
         plants = listOf(
             UiGardenPlant(
                 plantId = "bougainvillea-glabra",

@@ -14,9 +14,8 @@ import androidx.compose.ui.Modifier
 import androidx.compose.ui.tooling.preview.Preview
 import androidx.hilt.navigation.compose.hiltViewModel
 import androidx.lifecycle.compose.collectAsStateWithLifecycle
-import com.simuel.sunflower.core.domain.model.GardenPlant
 import com.simuel.sunflower.core.domain.model.Plant
-import com.simuel.sunflower.feature.home.component.GardenComponent
+import com.simuel.sunflower.feature.home.component.GardenPlantGrid
 import com.simuel.sunflower.feature.home.component.MainTopBar
 import com.simuel.sunflower.feature.home.component.PlantListComponent
 import com.simuel.sunflower.feature.home.model.UiGardenPlant
@@ -71,7 +70,7 @@ private fun HomeScreen(
             }
 
             when (selectedTabIndex) {
-                0 -> GardenComponent(
+                0 -> GardenPlantGrid(
                     plants = gardenPlants,
                     onPlantDetailClick = onPlantDetailClick
                 )
