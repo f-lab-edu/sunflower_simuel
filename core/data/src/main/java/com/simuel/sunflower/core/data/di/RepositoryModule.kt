@@ -10,20 +10,16 @@ import dagger.Binds
 import dagger.Module
 import dagger.hilt.InstallIn
 import dagger.hilt.components.SingletonComponent
-import javax.inject.Singleton
 
 @Module
 @InstallIn(SingletonComponent::class)
 internal abstract class RepositoryModule {
     @Binds
-    @Singleton
     abstract fun bindPlantRepository(plantRepository: PlantRepositoryImpl): PlantRepository
 
     @Binds
-    @Singleton
     abstract fun bindGardenRepository(gardenRepository: GardenRepositoryImpl): GardenRepository
 
     @Binds
-    @Singleton
     abstract fun bindPlantDetailRepository(plantDetailRepository: PlantDetailRepositoryImpl): PlantDetailRepository
 }
