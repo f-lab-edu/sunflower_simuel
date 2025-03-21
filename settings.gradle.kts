@@ -25,3 +25,5 @@ include(":app")
 // feature
 include(":feature:home")
 include(":feature:plantdetail")
+include(":core:data")
+include(":core:domain")

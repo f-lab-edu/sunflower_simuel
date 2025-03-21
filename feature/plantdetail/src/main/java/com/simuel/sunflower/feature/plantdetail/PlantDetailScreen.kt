@@ -1,73 +1,105 @@
 package com.simuel.sunflower.feature.plantdetail
 
-import androidx.compose.foundation.layout.Column
+import androidx.compose.foundation.layout.Box
+
 import androidx.compose.foundation.layout.fillMaxSize
 import androidx.compose.foundation.layout.padding
-import androidx.compose.material.icons.Icons
-import androidx.compose.material.icons.automirrored.filled.ArrowBack
-import androidx.compose.material3.CenterAlignedTopAppBar
+import androidx.compose.foundation.rememberScrollState
+import androidx.compose.foundation.verticalScroll
+import androidx.compose.material3.CircularProgressIndicator
 import androidx.compose.material3.ExperimentalMaterial3Api
-import androidx.compose.material3.Icon
-import androidx.compose.material3.IconButton
-import androidx.compose.material3.MaterialTheme
-import androidx.compose.material3.Scaffold
-import androidx.compose.material3.Text
+import androidx.compose.material3.TopAppBarDefaults
 import androidx.compose.runtime.Composable
+import androidx.compose.runtime.LaunchedEffect
+import androidx.compose.runtime.getValue
 import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.tooling.preview.Preview
 import androidx.compose.ui.unit.dp
+import androidx.hilt.navigation.compose.hiltViewModel
+import androidx.lifecycle.compose.collectAsStateWithLifecycle
+import com.simuel.sunflower.core.domain.model.Plant
+import com.simuel.sunflower.feature.plantdetail.component.PlantDetailAppBar
+import com.simuel.sunflower.feature.plantdetail.component.PlantDetailContent
+import com.simuel.sunflower.feature.plantdetail.model.PlantDetailUiState
 
 @Composable
 fun PlantDetailScreen(
+    plantId: String,
     onBackClick: () -> Unit,
 ) {
-    Scaffold(
-        topBar = {
-            PlantDetailTopBar(
-                title = "PlantDetail 화면",
-                onBackClick = onBackClick
-            )
-        }) { paddingValues ->
-        Column(
-            modifier = Modifier
-                .fillMaxSize()
-                .padding(paddingValues)
-                .padding(16.dp),
-            horizontalAlignment = Alignment.CenterHorizontally
-        ) {
-            Text(
-                text = "PlantDetail 화면",
-                style = MaterialTheme.typography.headlineMedium
-            )
+    val viewModel: PlantDetailViewModel = hiltViewModel()
+    val uiState by viewModel.uiState.collectAsStateWithLifecycle()
 
-
-        }
+    LaunchedEffect(plantId) {
+        viewModel.loadPlantDetail(plantId)
     }
+    PlantDetailScreen(
+        state = uiState,
+        onBackClick = onBackClick,
+    )
 }
 
 @OptIn(ExperimentalMaterial3Api::class)
 @Composable
-fun PlantDetailTopBar(
-    title: String, onBackClick: () -> Unit
+private fun PlantDetailScreen(
+    state: PlantDetailUiState,
+    onBackClick: () -> Unit,
 ) {
-    CenterAlignedTopAppBar(title = {
-        Text(
-            text = title,
-            style = MaterialTheme.typography.titleLarge
-        )
-    }, navigationIcon = {
-        IconButton(onClick = onBackClick) {
-            Icon(
-                imageVector = Icons.AutoMirrored.Filled.ArrowBack, contentDescription = "Back"
-            )
+    val scrollBehavior = TopAppBarDefaults.enterAlwaysScrollBehavior()
+    val scrollState = rememberScrollState()
+
+    Box(
+        modifier = Modifier.fillMaxSize()
+    ) {
+        when (state) {
+            is PlantDetailUiState.Loading -> {
+                Box(
+                    modifier = Modifier.fillMaxSize()
+                ) {
+                    CircularProgressIndicator(
+                        modifier = Modifier.align(Alignment.Center)
+                    )
+                }
+            }
+
+            is PlantDetailUiState.Success -> {
+                PlantDetailAppBar(
+                    title = state.plant.name,
+                    imageUrl = state.plant.imageUrl,
+                    onBackClick = onBackClick,
+                    scrollBehavior = scrollBehavior
+                )
+
+                PlantDetailContent(
+                    plant = state.plant,
+                    modifier = Modifier
+                        .fillMaxSize()
+                        .padding(top = 336.dp)
+                        .verticalScroll(scrollState)
+                )
+            }
         }
-    })
+    }
 }
 
 @Preview
 @Composable
 fun PreviewPlantDetailScreen() {
+    val previewPlant = Plant(
+        plantId = "pyrus-communis",
+        name = "Pear",
+        description = """
+            The pear tree and shrub are a species of genus Pyrus, in the family Rosaceae, bearing the pomaceous fruit 
+            of the same name. Several species of pear are valued for their edible fruit and juices while others are cultivated 
+            as trees.<br><br>
+            (From <a href="https://en.wikipedia.org/wiki/Pear">Wikipedia</a>)
+        """.trimIndent(),
+        growZoneNumber = 3,
+        wateringInterval = 30,
+        imageUrl = "https://upload.wikimedia.org/wikipedia/commons/1/13/More_pears.jpg"
+    )
+
     PlantDetailScreen(
-       onBackClick = {})
-} 
+        state = PlantDetailUiState.Success(previewPlant), onBackClick = {})
+}
