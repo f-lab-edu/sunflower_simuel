@@ -13,6 +13,5 @@ import javax.inject.Singleton
 internal abstract class DataSourceModule {
 
     @Binds
-    @Singleton
     abstract fun bindRemoteGalleryDataSource(dataSource: RemoteGalleryDataSourceImpl): RemoteGalleryDataSource
 }
