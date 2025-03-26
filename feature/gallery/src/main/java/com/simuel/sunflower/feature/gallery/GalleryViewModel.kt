@@ -23,7 +23,7 @@ class GalleryViewModel @Inject constructor(
     private val _uiState = MutableStateFlow<GalleryUiState>(GalleryUiState.Loading)
     val uiState: StateFlow<GalleryUiState> = _uiState.asStateFlow()
 
-    fun requestGalleryImages(
+    fun requestGalleryPhotos(
         category: String,
     ) {
         viewModelScope.launch {

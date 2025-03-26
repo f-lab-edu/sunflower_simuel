@@ -29,7 +29,7 @@ fun GalleryScreen(
     val galleryState by viewModel.uiState.collectAsState()
 
     LaunchedEffect(plantName) {
-        viewModel.requestGalleryImages(plantName)
+        viewModel.requestGalleryPhotos(plantName)
     }
 
     GalleryScreenContent(
