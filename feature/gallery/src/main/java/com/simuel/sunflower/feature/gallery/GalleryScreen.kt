@@ -32,7 +32,7 @@ fun GalleryScreen(
         viewModel.requestGalleryImages(plantName)
     }
 
-    GalleryScreen(
+    GalleryScreenContent(
         uiState = galleryState,
         onPhotoClick = { uiPhoto ->
             val domainPhoto = Photo(
@@ -49,7 +49,7 @@ fun GalleryScreen(
 }
 
 @Composable
-private fun GalleryScreen(
+private fun GalleryScreenContent(
     uiState: GalleryUiState,
     onPhotoClick: (UiGalleryPhoto) -> Unit,
     onBackClick: () -> Unit,
@@ -86,7 +86,7 @@ private fun GalleryScreen(
 @Preview(showBackground = true, name = "갤러리 로딩중")
 @Composable
 private fun GalleryScreenLoadingPreview() {
-    GalleryScreen(
+    GalleryScreenContent(
         uiState = GalleryUiState.Loading,
         onPhotoClick = {},
         onBackClick = {}
@@ -127,7 +127,7 @@ private fun GalleryScreenSuccessPreview() {
         )
     )
     
-    GalleryScreen(
+    GalleryScreenContent(
         uiState = GalleryUiState.Success(photos = previewPhotos),
         onPhotoClick = {},
         onBackClick = {}
@@ -137,7 +137,7 @@ private fun GalleryScreenSuccessPreview() {
 @Preview(showBackground = true, name = "갤러리 불러오기 실패")
 @Composable
 private fun GalleryScreenErrorPreview() {
-    GalleryScreen(
+    GalleryScreenContent(
         uiState = GalleryUiState.Error(errorMessage = "이미지 로드 실패"),
         onPhotoClick = {},
         onBackClick = {}
