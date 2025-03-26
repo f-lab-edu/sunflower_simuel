@@ -4,7 +4,7 @@ import kotlinx.serialization.SerialName
 import kotlinx.serialization.Serializable
 
 @Serializable
-internal data class PhotoUrls(
+internal data class PhotoSizeUrls(
     @SerialName("raw") val raw: String,
     @SerialName("full") val full: String,
     @SerialName("regular") val regular: String,
