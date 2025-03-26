@@ -85,7 +85,7 @@ private fun GalleryScreenContent(
 
 @Preview(showBackground = true, name = "갤러리 로딩중")
 @Composable
-private fun GalleryScreenLoadingPreview() {
+private fun GalleryScreenUiStateLoadingPreview() {
     GalleryScreenContent(
         uiState = GalleryUiState.Loading,
         onPhotoClick = {},
@@ -95,7 +95,7 @@ private fun GalleryScreenLoadingPreview() {
 
 @Preview(showBackground = true, name = "갤러리 불러오기 성공")
 @Composable
-private fun GalleryScreenSuccessPreview() {
+private fun GalleryScreenUiStateSuccessPreview() {
     val previewPhotos = listOf(
         UiGalleryPhoto(
             id = "1",
@@ -136,7 +136,7 @@ private fun GalleryScreenSuccessPreview() {
 
 @Preview(showBackground = true, name = "갤러리 불러오기 실패")
 @Composable
-private fun GalleryScreenErrorPreview() {
+private fun GalleryScreenUiStateErrorPreview() {
     GalleryScreenContent(
         uiState = GalleryUiState.Error(errorMessage = "이미지 로드 실패"),
         onPhotoClick = {},
