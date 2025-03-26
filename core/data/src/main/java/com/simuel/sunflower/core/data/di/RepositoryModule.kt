@@ -22,6 +22,5 @@ internal abstract class RepositoryModule {
     abstract fun bindGardenRepository(gardenRepository: GardenRepositoryImpl): GardenRepository
     
     @Binds
-    @Singleton
     abstract fun bindGalleryRepository(galleryRepository: GalleryRepositoryImpl): GalleryRepository
 }
