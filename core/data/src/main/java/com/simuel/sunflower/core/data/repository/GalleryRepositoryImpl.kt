@@ -10,7 +10,7 @@ internal class GalleryRepositoryImpl @Inject constructor(
     private val remoteGalleryDataSource: RemoteGalleryDataSource
 ) : GalleryRepository {
     
-    override suspend fun getCategoryImages(
+    override suspend fun getCategoryPhotos(
         category: String, 
         page: Int, 
         pageSize: Int

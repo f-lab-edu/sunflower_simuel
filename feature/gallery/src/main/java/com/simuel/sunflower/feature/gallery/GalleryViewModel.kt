@@ -28,7 +28,7 @@ class GalleryViewModel @Inject constructor(
     ) {
         viewModelScope.launch {
             flow {
-                val photos = repository.getCategoryImages(
+                val photos = repository.getCategoryPhotos(
                     category = category, page = 1, pageSize = 10
                 )
                 emit(photos)
