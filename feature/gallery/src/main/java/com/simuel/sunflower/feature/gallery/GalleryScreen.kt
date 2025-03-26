@@ -1,5 +1,6 @@
 package com.simuel.sunflower.feature.gallery
 
+import android.content.Intent
 import androidx.compose.foundation.layout.fillMaxSize
 import androidx.compose.foundation.layout.padding
 import androidx.compose.material3.Scaffold
@@ -8,7 +9,9 @@ import androidx.compose.runtime.LaunchedEffect
 import androidx.compose.runtime.collectAsState
 import androidx.compose.runtime.getValue
 import androidx.compose.ui.Modifier
+import androidx.compose.ui.platform.LocalContext
 import androidx.compose.ui.tooling.preview.Preview
+import androidx.core.net.toUri
 import androidx.hilt.navigation.compose.hiltViewModel
 import com.simuel.sunflower.core.domain.model.Photo
 import com.simuel.sunflower.feature.gallery.component.GalleryErrorComponent
@@ -25,6 +28,7 @@ fun GalleryScreen(
     onPhotoClick: (Photo) -> Unit,
     onBackClick: () -> Unit,
 ) {
+    val context = LocalContext.current
     val viewModel: GalleryViewModel = hiltViewModel()
     val galleryState by viewModel.uiState.collectAsState()
 
@@ -35,6 +39,9 @@ fun GalleryScreen(
     GalleryScreenContent(
         uiState = galleryState,
         onPhotoClick = { uiPhoto ->
+
+            val intent = Intent(Intent.ACTION_VIEW, uiPhoto.url.toUri())
+            context.startActivity(intent)
             val domainPhoto = Photo(
                 id = uiPhoto.id,
                 name = uiPhoto.name,

@@ -1,6 +1,5 @@
 package com.simuel.sunflower.feature.gallery.component
 
-import android.content.Intent
 import androidx.compose.foundation.layout.Column
 import androidx.compose.foundation.layout.fillMaxWidth
 import androidx.compose.foundation.layout.height
@@ -14,12 +13,10 @@ import androidx.compose.runtime.Composable
 import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.layout.ContentScale
-import androidx.compose.ui.platform.LocalContext
 import androidx.compose.ui.text.style.TextAlign
 import androidx.compose.ui.tooling.preview.Preview
 import androidx.compose.ui.unit.dp
 import coil.compose.AsyncImage
-import androidx.core.net.toUri
 
 @Composable
 fun ImageListItem(
@@ -27,13 +24,8 @@ fun ImageListItem(
     imageUrl: String,
     onClick: () -> Unit
 ) {
-    val context = LocalContext.current
-
     Card(
-        onClick = {
-            val intent = Intent(Intent.ACTION_VIEW, imageUrl.toUri())
-            context.startActivity(intent)
-        },
+        onClick = onClick,
         colors = CardDefaults.cardColors(containerColor = MaterialTheme.colorScheme.secondaryContainer),
         modifier = Modifier
             .padding(horizontal = 12.dp)
