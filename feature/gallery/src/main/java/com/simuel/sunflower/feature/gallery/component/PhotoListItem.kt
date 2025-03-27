@@ -21,7 +21,7 @@ import coil.compose.AsyncImage
 @Composable
 fun PhotoListItem(
     name: String,
-    imageUrl: String,
+    photoUrl: String,
     onClick: () -> Unit
 ) {
     Card(
@@ -33,7 +33,7 @@ fun PhotoListItem(
     ) {
         Column(Modifier.fillMaxWidth()) {
             AsyncImage(
-                model = imageUrl,
+                model = photoUrl,
                 contentDescription = "plants image",
                 modifier = Modifier
                     .fillMaxWidth()
@@ -58,5 +58,5 @@ fun PhotoListItem(
 @Composable
 private fun PreviewImageListItem() {
     PhotoListItem(
-        name = "sunflower", imageUrl = "https://unsplash.com/plant.jpg", onClick = {})
+        name = "sunflower", photoUrl = "https://unsplash.com/plant.jpg", onClick = {})
 }

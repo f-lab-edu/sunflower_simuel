@@ -28,7 +28,7 @@ fun GallerySuccessComponent(
         ) { photo ->
             PhotoListItem(
                 name = photo.name,
-                imageUrl = photo.url,
+                photoUrl = photo.url,
                 onClick = { onPhotoClick(photo) }
             )
         }
