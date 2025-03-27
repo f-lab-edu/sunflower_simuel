@@ -4,7 +4,7 @@ import androidx.lifecycle.ViewModel
 import androidx.lifecycle.viewModelScope
 import com.simuel.sunflower.core.domain.repository.GalleryRepository
 import com.simuel.sunflower.feature.gallery.model.GalleryUiState
-import com.simuel.sunflower.feature.gallery.model.UiGalleryPhoto
+import com.simuel.sunflower.feature.gallery.model.GalleryUiPhoto
 import dagger.hilt.android.lifecycle.HiltViewModel
 import kotlinx.coroutines.flow.MutableStateFlow
 import kotlinx.coroutines.flow.StateFlow
@@ -35,7 +35,7 @@ class GalleryViewModel @Inject constructor(
             }.map { domainPhotos ->
                 GalleryUiState.Success(
                     domainPhotos.map { photo ->
-                        UiGalleryPhoto(
+                        GalleryUiPhoto(
                             id = photo.id,
                             url = photo.url,
                             name = photo.name,

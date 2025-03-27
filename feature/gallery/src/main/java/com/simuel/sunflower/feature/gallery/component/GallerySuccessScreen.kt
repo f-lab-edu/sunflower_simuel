@@ -9,12 +9,12 @@ import androidx.compose.runtime.Composable
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.tooling.preview.Preview
 import androidx.compose.ui.unit.dp
-import com.simuel.sunflower.feature.gallery.model.UiGalleryPhoto
+import com.simuel.sunflower.feature.gallery.model.GalleryUiPhoto
 
 @Composable
 fun GallerySuccessComponent(
-    photos: List<UiGalleryPhoto>,
-    onPhotoClick: (UiGalleryPhoto) -> Unit,
+    photos: List<GalleryUiPhoto>,
+    onPhotoClick: (GalleryUiPhoto) -> Unit,
     modifier: Modifier
 ) {
     LazyVerticalGrid(
@@ -39,28 +39,28 @@ fun GallerySuccessComponent(
 @Composable
 private fun GallerySuccessComponentPreview() {
     val previewPhotos = listOf(
-        UiGalleryPhoto(
+        GalleryUiPhoto(
             id = "1",
             url = "https://images.unsplash.com/photo-1",
             name = "Sunflower",
             userName = "User1",
             description = "sunflower"
         ),
-        UiGalleryPhoto(
+        GalleryUiPhoto(
             id = "2",
             url = "https://images.unsplash.com/photo-2",
             name = "Rose",
             userName = "User2",
             description = "rose"
         ),
-        UiGalleryPhoto(
+        GalleryUiPhoto(
             id = "3",
             url = "https://images.unsplash.com/photo-3",
             name = "Tulip",
             userName = "User3",
             description = "tulip"
         ),
-        UiGalleryPhoto(
+        GalleryUiPhoto(
             id = "4",
             url = "https://images.unsplash.com/photo-4",
             name = "Lily",

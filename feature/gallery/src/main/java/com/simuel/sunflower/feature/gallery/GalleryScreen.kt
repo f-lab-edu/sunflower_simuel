@@ -19,7 +19,7 @@ import com.simuel.sunflower.feature.gallery.component.GalleryLoadingComponent
 import com.simuel.sunflower.feature.gallery.component.GallerySuccessComponent
 import com.simuel.sunflower.feature.gallery.component.GalleryTopBar
 import com.simuel.sunflower.feature.gallery.model.GalleryUiState
-import com.simuel.sunflower.feature.gallery.model.UiGalleryPhoto
+import com.simuel.sunflower.feature.gallery.model.GalleryUiPhoto
 
 
 @Composable
@@ -58,7 +58,7 @@ fun GalleryScreen(
 @Composable
 private fun GalleryScreenContent(
     uiState: GalleryUiState,
-    onPhotoClick: (UiGalleryPhoto) -> Unit,
+    onPhotoClick: (GalleryUiPhoto) -> Unit,
     onBackClick: () -> Unit,
 ) {
     Scaffold(
@@ -104,28 +104,28 @@ private fun GalleryScreenUiStateLoadingPreview() {
 @Composable
 private fun GalleryScreenUiStateSuccessPreview() {
     val previewPhotos = listOf(
-        UiGalleryPhoto(
+        GalleryUiPhoto(
             id = "1",
             url = "https://images.unsplash.com/photo-1",
             name = "Sunflower",
             userName = "User1",
             description = "Beautiful sunflower"
         ),
-        UiGalleryPhoto(
+        GalleryUiPhoto(
             id = "2",
             url = "https://images.unsplash.com/photo-2",
             name = "Rose",
             userName = "User2",
             description = "Red rose"
         ),
-        UiGalleryPhoto(
+        GalleryUiPhoto(
             id = "3",
             url = "https://images.unsplash.com/photo-3",
             name = "Tulip",
             userName = "User3",
             description = "Yellow tulip"
         ),
-        UiGalleryPhoto(
+        GalleryUiPhoto(
             id = "4",
             url = "https://images.unsplash.com/photo-4",
             name = "Lily",
