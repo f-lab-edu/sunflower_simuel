@@ -56,7 +56,7 @@ fun PhotoListItem(
 
 @Preview
 @Composable
-private fun PreviewImageListItem() {
+private fun PreviewPhotoListItem() {
     PhotoListItem(
         name = "sunflower", photoUrl = "https://unsplash.com/plant.jpg", onClick = {})
 }
