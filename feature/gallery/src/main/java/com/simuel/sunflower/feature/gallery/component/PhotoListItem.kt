@@ -19,7 +19,7 @@ import androidx.compose.ui.unit.dp
 import coil.compose.AsyncImage
 
 @Composable
-fun ImageListItem(
+fun PhotoListItem(
     name: String,
     imageUrl: String,
     onClick: () -> Unit
@@ -57,6 +57,6 @@ fun ImageListItem(
 @Preview
 @Composable
 private fun PreviewImageListItem() {
-    ImageListItem(
+    PhotoListItem(
         name = "sunflower", imageUrl = "https://unsplash.com/plant.jpg", onClick = {})
 }

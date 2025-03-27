@@ -8,7 +8,7 @@ import javax.inject.Inject
 internal class RemoteGalleryDataSourceImpl @Inject constructor(
     private val unsplashApiService: UnsplashApiService
 ) : RemoteGalleryDataSource {
-    override suspend fun fetchImagesByCategory(
+    override suspend fun fetchPhotosByCategory(
         query: String,
         page: Int,
         perPage: Int

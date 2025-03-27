@@ -15,7 +15,7 @@ internal class GalleryRepositoryImpl @Inject constructor(
         page: Int, 
         pageSize: Int
     ): List<Photo> {
-        return remoteGalleryDataSource.fetchImagesByCategory(
+        return remoteGalleryDataSource.fetchPhotosByCategory(
             query = category,
             page = page,
             perPage = pageSize

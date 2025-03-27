@@ -26,7 +26,7 @@ fun GallerySuccessComponent(
             items = photos,
             key = { photo -> photo.id }
         ) { photo ->
-            ImageListItem(
+            PhotoListItem(
                 name = photo.name,
                 imageUrl = photo.url,
                 onClick = { onPhotoClick(photo) }
